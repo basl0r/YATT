@@ -34,28 +34,28 @@ class AppController extends Controller {
 
 //    public $components = array('DebugKit.Toolbar');
     //Auth
-    public $components = array(
-        'Session',
-        'Auth' => array(
-            'loginRedirect' => array(
-                'controller' => '',
-                'action' => 'index'
-            ),
-            'logoutRedirect' => array(
-                'controller' => '',
-                'action' => 'display',
-                'home'
-            ),
-            'authenticate' => array(
-                'Form' => array(
-                    'passwordHasher' => 'Blowfish'
-                )
-            )
-        )
-    );
-
-    public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
-    }
+//    public $components = array(
+//        'Session',
+//        'Auth' => array(
+//            'loginRedirect' => array(
+//                'controller' => '',
+//                'action' => 'index'
+//            ),
+//            'logoutRedirect' => array(
+//                'controller' => '',
+//                'action' => 'display',
+//                'home'
+//            ),
+//            'authenticate' => array(
+//                'Form' => array(
+//                    'passwordHasher' => 'Blowfish'
+//                )
+//            )
+//        )
+//    );
+//
+//    public function beforeFilter() {
+//        $this->Auth->allow('index', 'view');
+//    }
 
 }

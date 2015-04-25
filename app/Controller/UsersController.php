@@ -1,6 +1,8 @@
 <?php
 
 /*
+ * Simple Authentication and Authorization Application
+ * http://book.cakephp.org/2.0/en/tutorials-and-examples/blog-auth-example/auth.html
  */
 App::uses('AppController', 'Controller');
 
@@ -13,6 +15,7 @@ class UsersController extends AppController {
     }
 
     public function login() {
+        var_dump(Security::hash());
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 return $this->redirect($this->Auth->redirectUrl());

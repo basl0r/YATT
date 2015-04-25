@@ -1,6 +1,9 @@
 <?php
 
 /*
+ * Simple Authentication and Authorization Application
+ * http://book.cakephp.org/2.0/en/tutorials-and-examples/blog-auth-example/auth.html
+ * 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
