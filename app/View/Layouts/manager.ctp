@@ -1,4 +1,4 @@
-<?php $this->assign('title', 'Mitarbeiter - Übersicht'); ?>
+<?php $this->assign('title', 'Manager - Übersicht'); ?>
 
 <!DOCTYPE html>
 <html lang="DE">
@@ -11,7 +11,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php echo $this->element('navbar'); ?>
+        <?php echo $this->element('navbar_manager'); ?>
         <?php echo $this->fetch('content'); ?>
 
 
