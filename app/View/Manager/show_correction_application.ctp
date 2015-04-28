@@ -1,2 +1,5 @@
-<?php $this->fetch('navbar');?>
-<?php $this->assign('title', $title);?>
+<?php $this->fetch('navbar');
+$this->assign('title', $title);
+
+echo $this->Html->tableHeaders(array('Mitarbeiter id','')); 
+?>

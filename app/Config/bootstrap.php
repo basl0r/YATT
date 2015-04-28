@@ -109,6 +109,6 @@ CakeLog::config('error', array(
     'file' => 'error',
 ));
 
-//CakePlugin::load('DebugKit');
+CakePlugin::load('DebugKit');
 //CakePlugin::loadAll();
 //CakePlugin::load('AclExtras');
