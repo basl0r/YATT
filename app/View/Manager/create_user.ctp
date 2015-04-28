@@ -1,5 +1,24 @@
-<?php
-echo $form->create();
-
-
-?>
+<?php $this->fetch('navbar');?>
+<?php $this->assign('title', $title);?>
+<div class="container">
+      <h2>Neuen Mitarbeiter/in anlegen</h2>
+      <form role="form">
+	  		<div class="form-group">
+			<label for="Mitarbeiter-ID">Mitarbeiter-ID:</label>
+			<input type="text" class="form-control" id="Mitarbeiter-ID" placeholder="Bitte ID-Nummer eingeben">
+        </div>
+        <div class="form-group">
+			<label for="Vorname">Vorname:</label>
+			<input type="text" class="form-control" id="Vorname" placeholder="Bitte Vornamen eingeben">
+        </div>
+        <div class="form-group">
+			<label for="Nachname">Nachname:</label>
+			<input type="text" class="form-control" id="Nachname" placeholder="Bitte Nachnamen eingeben">
+        </div>
+		<div class="form-group">
+			<label for="Mitarbeiter-Soll-Stunden">Soll-Stunden:</label>
+			<input type="text" class="form-control" id="Mitarbeiter-Soll-Stunden" placeholder="Bitte Soll-Stunden eingeben">
+        </div>
+        <button type="submit" class="btn btn-default">Anlegen</button>
+      </form>
+    </div>

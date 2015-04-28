@@ -11,56 +11,92 @@
  * @since         DebugKit 1.3
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace DebugKit\Model\Behavior;
 
-use Cake\Event\Event;
-use Cake\ORM\Behavior;
-use DebugKit\DebugTimer;
+App::uses('DebugKitDebugger', 'DebugKit.Lib');
 
 /**
  * Class TimedBehavior
+ *
+ * @since         DebugKit 1.3
  */
-class TimedBehavior extends Behavior
-{
+class TimedBehavior extends ModelBehavior {
 
-    /**
-     * beforeFind, starts a timer for a find operation.
-     *
-     * @param \Cake\Event\Event $event The beforeFind event
-     * @param \Cake\ORM\Query $query Query
-     * @return bool true
-     */
-    public function beforeFind(Event $event, $query)
-    {
-        $alias = $event->subject()->alias();
-        DebugTimer::start($alias . '_find', $alias . '->find()');
-        return $query->formatResults(function ($results) use ($alias) {
-            DebugTimer::stop($alias . '_find');
-            return $results;
-        });
-    }
+/**
+ * Behavior settings
+ *
+ * @var array
+ */
+	public $settings = array();
 
-    /**
-     * beforeSave, starts a time before a save is initiated.
-     *
-     * @param Cake\Event\Event $event The beforeSave event
-     * @return void
-     */
-    public function beforeSave(Event $event)
-    {
-        $alias = $event->subject()->alias();
-        DebugTimer::start($alias . '_save', $alias . '->save()');
-    }
+/**
+ * Default setting values
+ *
+ * @var array
+ */
+	protected $_defaults = array();
 
-    /**
-     * afterSave, stop the timer started from a save.
-     *
-     * @param Cake\Event\Event $event The afterSave event
-     * @return void
-     */
-    public function afterSave(Event $event)
-    {
-        $alias = $event->subject()->alias();
-        DebugTimer::stop($alias . '_save');
-    }
+/**
+ * Setup the behavior and import required classes.
+ *
+ * @param \Model|object $Model Model using the behavior
+ * @param array $settings Settings to override for model.
+ * @return void
+ */
+	public function setup(Model $Model, $settings = null) {
+		if (is_array($settings)) {
+			$this->settings[$Model->alias] = array_merge($this->_defaults, $settings);
+		} else {
+			$this->settings[$Model->alias] = $this->_defaults;
+		}
+	}
+
+/**
+ * beforeFind, starts a timer for a find operation.
+ *
+ * @param Model $Model
+ * @param array $queryData Array of query data (not modified)
+ * @return boolean true
+ */
+	public function beforeFind(Model $Model, $queryData) {
+		DebugKitDebugger::startTimer($Model->alias . '_find', $Model->alias . '->find()');
+		return true;
+	}
+
+/**
+ * afterFind, stops a timer for a find operation.
+ *
+ * @param Model $Model
+ * @param array $results Array of results
+ * @param $primary
+ * @return boolean true.
+ */
+	public function afterFind(Model $Model, $results, $primary = false) {
+		DebugKitDebugger::stopTimer($Model->alias . '_find');
+		return true;
+	}
+
+/**
+ * beforeSave, starts a time before a save is initiated.
+ *
+ * @param Model $Model
+ * @param array $options
+ * @return boolean true
+ */
+	public function beforeSave(Model $Model, $options = array()) {
+		DebugKitDebugger::startTimer($Model->alias . '_save', $Model->alias . '->save()');
+		return true;
+	}
+
+/**
+ * afterSave, stop the timer started from a save.
+ *
+ * @param \Model $Model
+ * @param string $created
+ * @return boolean Always true
+ */
+	public function afterSave(Model $Model, $created, $options = array()) {
+		DebugKitDebugger::stopTimer($Model->alias . '_save');
+		return true;
+	}
+
 }

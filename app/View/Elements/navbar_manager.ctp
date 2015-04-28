@@ -12,19 +12,10 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "index")); ?>" >Home</a></li>
-                
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Übersicht<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "show", "manager")); ?>">Manager</a></li>
-                        <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "show", "emloyee")); ?>">Mitarbeiter</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "create")); ?>">Benutzer anlegen</a></li>
+                <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "create_user")); ?>">Benutzer anlegen</a></li>
                 <!--class="active"-->
                 
-                <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "correction_application")); ?>">Korrekturanträge</a></li>
+                <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "show_correction_application")); ?>">Korrekturanträge</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo $this->Html->url(array("controller" => "manager", "action" => "index")); ?>"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>

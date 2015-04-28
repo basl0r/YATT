@@ -27,7 +27,7 @@ class ManagerController extends AppController {
      * link zu /manager/edit/correction_application
      * @param int $id; id = NULL Alle Anträge anzeigen; id >=1 Antrag anzeigen
      */
-    public function correction_application($id = NULL) {
+    public function show_correction_application($id = NULL) {
         $this->layout = 'manager';
         $this->set('title', 'Manager - Übersicht Korrekturanträge');
     }
@@ -38,6 +38,8 @@ class ManagerController extends AppController {
     public function create_user() {
         $this->layout = 'manager';
         $this->set('title', 'Manager - Bearbeiten');
+        
+        
     }
 
 }

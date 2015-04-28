@@ -15,13 +15,19 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Übersicht<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "show", "month")); ?>" >Monatsübersicht</a></li>
-                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "show", "year")); ?>">Jahresübersicht</a></li>
+                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "show_overview", "month")); ?>" >Monatsübersicht</a></li>
+                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "show_overview", "year")); ?>">Jahresübersicht</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Korrekturantrag<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "create_correction_application")); ?>" > - erstellen</a></li>
+                        <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "show_correction_application")); ?>">- anzeigen</a></li>
                     </ul>
                 </li>
                 <!--<li><a href="#">Statistiken</a></li>-->
                 <!--class="active"-->
-                <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "correction_application")); ?>">Korrekturantrag</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo $this->Html->url(array("controller" => "employee", "action" => "index")); ?>"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
